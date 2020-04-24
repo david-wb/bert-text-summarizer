@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="bert-text-summarizer",
-    version="0.0.1",
+    version="0.0.2",
     author="David Brown",
     author_email="davewbrwn@gmail.com",
     description="A BERT-based text summarization tool",
