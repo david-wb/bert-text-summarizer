@@ -1,0 +1,12 @@
+.idea/
+.pytest_cache/
+__pycache__/
+.ipynb_checkpoints/
+logs/
+*.egg-info/
+data/
+*.tar.gz
+*.gz
+dist/
+build/
+*.tfrec

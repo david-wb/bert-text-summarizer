@@ -1,0 +1,16 @@
+Clinical prediction tasks such as patient mortality and disease prediction are highly important for early disease prevention and timely intervention [1, 2].
+Patient mortality prediction in intensive care units (ICUs) is a key application for large-scale health data and plays an important role in selecting interventions, planning care, and allocating resources.
+Accurate assessment of mortality risk and early identification of high-risk populations with poor prognoses followed by timely intervention are key in improving patient outcomes.
+A preliminary disease diagnosis assists doctors in making decisions.
+With the goal of accurately predicting clinical outcomes, studies have proposed methods that include scoring systems and machine learning models [3, 4].
+The scoring systems for mortality prediction in widely clinical use include the Sepsis-related Organ Failure Assessment (SOFA) [3], the New Simplified Acute Physiology Score (SAPSII) [5], and the Multiple Organ Dysfunction Syndrome (MODS) [6].
+However, most scoring systems based on simple logistic regression for patient mortality prediction have limited prediction performance.
+With the development of machine learning and deep learning models, studies have applied trained models to clinical prediction tasks and achieve better performance compared to earlier approaches [4, 7].
+Feature extraction and patient representation are the underlying premise for constructing prediction models; consequently, these factors are important and affect the prediction performance.
+An increasing number of monitoring devices and laboratory tests in modern ICUs collect multivariate time series data of varying lengths from patients.
+Variable-length multivariate time series means that more than one physical measurement will be collected from a patient after admission to the ICU and that the sampling frequency of each predictor differs within a given time window.
+Overall, patient data consisting of physiological measurements have typical characteristics, such as high resolution, varying lengths, noisy values, and system bias, making the extraction of the temporal features of time series challenging.
+Most of the existing models select specific summary values for each predictor over a given time period and concatenate them to form patient vectors. Statistics are a form of summary values, and studies have shown that summary statistics can reflect the characteristics of time series.
+Moreover, they have advantages such as simple extraction, high robustness and strong representativeness [8–10].
+The features of time series can be divided into three aspects: central tendency, dispersion tendency and distribution shape.
+The distribution and trends of time series can be reflected by combining multiple summary statistics, thus approximating the original data distribution and reducing the impact of noise on the prediction results.
