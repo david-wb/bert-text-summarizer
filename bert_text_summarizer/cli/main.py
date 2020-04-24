@@ -38,24 +38,6 @@ def get_cnndm_train(output_path: str, max_examples: int, tfhub_model_url: str):
 
 
 @cli.command()
-@click.option('--output-path', type=click.Path(), default='cnndm_eval.tfrec')
-@click.option('--tfhub-model-url', type=str, default="https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1")
-def get_cnndm_eval(output_path: str, tfhub_model_url: str):
-    bert_layer = hub.KerasLayer(tfhub_model_url, trainable=True)
-    vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
-    do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
-    tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
-
-    features = ExtractiveDataLoader.load_cnndm(tokenizer, split='validation')
-
-    print(f'Loading CNN/DM eval set. Writing TF records to {os.path.basename(output_path)}')
-    writer = tf.io.TFRecordWriter(output_path)
-    for i, input_feature in enumerate(tqdm(features)):
-        writer.write(input_feature.serialize_to_string())
-    writer.close()
-
-
-@cli.command()
 @click.option('--saved-model-dir', type=click.Path(exists=False), help="Directory in which to save model checkpoints")
 @click.option('--train-data-path', type=click.Path(exists=True), help="Path to the tf-record training set file")
 @click.option('--batch-size', type=int, default=1)

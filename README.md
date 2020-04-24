@@ -35,6 +35,10 @@ pip install -U bert-text-summarizer
 bert-text-summarizer get-cnndm-train --max-examples=10000
 ```
 
+This outputs a tf-record file named `cnndm_train.tfrec` by default.
+
+Leaving out `--max-examples` it will process the entire CNN/DM training set much may take >1 hours to complete.
+
 ### Train the model
 
 ```buildoutcfg
@@ -53,12 +57,6 @@ bert-text-summarizer get-summary \
   --max-words=150
 ```
 
-### Get validation data
-
-```buildoutcfg
-bert-text-summarizer get-cnndm-eval
-```
-
 ### Train the model
 
 ```buildoutcfg
@@ -66,3 +64,11 @@ bert-text-summarizer train-ext-summarizer \
   --saved-model-dir=bert_ext_summ_model \
   --train-data-path=cnndm_train.tfrec \
   --epochs=10
+```
+
+### Evaluate on the CNN/DM validation set
+
+```
+bert-text-summarizer eval-ext-summarizer \
+  --saved-model-dir=bert_ext_summ_model
+```
