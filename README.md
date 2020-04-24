@@ -48,7 +48,7 @@ bert-text-summarizer train-ext-summarizer \
   --epochs=10
 ```
 
-### Get Summary
+### Get summary
 
 ```buildoutcfg
 bert-text-summarizer get-summary \
