@@ -37,7 +37,7 @@ bert-text-summarizer get-cnndm-train --max-examples=10000
 
 This outputs a tf-record file named `cnndm_train.tfrec` by default.
 
-Leaving out `--max-examples` it will process the entire CNN/DM training set much may take >1 hours to complete.
+Leaving out `--max-examples` it will process the entire CNN/DM training set which may take >1 hours to complete.
 
 ### Train the model
 
