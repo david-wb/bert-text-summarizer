@@ -58,6 +58,28 @@ bert-text-summarizer get-summary \
   --max-words=150
 ```
 
+You can create a summary programmatically like this
+```python
+import tensorflow_hub as hub
+from official.nlp.bert import tokenization
+
+from bert_text_summarizer.extractive.model import ExtractiveSummarizer
+
+# Create the tokenizer (if you have the vocab.txt file you can bypass this tfhub step)
+bert_layer = hub.KerasLayer("https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/1", trainable=False)
+vocab_file = bert_layer.resolved_object.vocab_file.asset_path.numpy()
+do_lower_case = bert_layer.resolved_object.do_lower_case.numpy()
+tokenizer = tokenization.FullTokenizer(vocab_file, do_lower_case)
+
+# Create the summarizer
+predictor = ExtractiveSummarizer(tokenizer=tokenizer, saved_model_dir='bert_ext_summ_model')
+
+# Get the article summary
+article = open('article.txt', 'r').read().strip()
+summary = predictor.get_summary(text=article, max_words=200)
+print(summary)
+```
+
 ### Evaluate on the CNN/DM validation set
 
 ```
