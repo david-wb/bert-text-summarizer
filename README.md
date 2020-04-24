@@ -7,8 +7,8 @@ This repo is TensorFlow centric (apologies to the PyTorch people.)
 Using a word limit of 200, this simple model achieves approximately the following ROUGE F1 scores on the CNN/DM validation set.
 
 ```buildoutcfg
-ROUGE-1: 36.0
-ROUGE-2: 15.0
+ROUGE-1: 37.78
+ROUGE-2: 15.78
 ```
 
 ## How does it work?
