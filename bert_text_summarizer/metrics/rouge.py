@@ -22,9 +22,11 @@ def rouge_n(reference: List[any], candidate: List[any], n: int) -> float:
 
     matches = len(unique_c.intersection(unique_r))
     recall = matches / len(unique_r)
-    precision = matches / len(unique_c)
 
     return recall
+
+    # precision = matches / len(unique_c)
+
     # if precision + recall == 0:
     #     return 0
     #
