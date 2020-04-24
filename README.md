@@ -57,15 +57,6 @@ bert-text-summarizer get-summary \
   --max-words=150
 ```
 
-### Train the model
-
-```buildoutcfg
-bert-text-summarizer train-ext-summarizer \
-  --saved-model-dir=bert_ext_summ_model \
-  --train-data-path=cnndm_train.tfrec \
-  --epochs=10
-```
-
 ### Evaluate on the CNN/DM validation set
 
 ```
