@@ -4,12 +4,13 @@ Currently, only **extractive** summarization is supported.
 
 This repo is TensorFlow centric (apologies to the PyTorch people.)
 
-Using a word limit of 200, this model achieves approximately the following ROUGE scores on the CNN/DM validation set.
+Using a word limit of 200, this simple model achieves approximately the following ROUGE F1 scores on the CNN/DM validation set.
 
 ```buildoutcfg
-ROUGE-1: 64.0
-ROUGE-2: 30.0
+ROUGE-1: 36.0
+ROUGE-2: 15.0
 ```
+
 ## How does it work?
 
 During preprocessing, the input text is divided into chunks up to 512 tokens long. Each sentence is
